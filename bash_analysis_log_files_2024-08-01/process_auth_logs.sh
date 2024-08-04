@@ -10,10 +10,10 @@
 # - As long as the log file contiues to remain small (<1GB) -> its likely tennable to have these kinds
 # of analysis performed from bash.
 #   - NOTE: Mileage may vary depending on how many of these metrics are needed at once. it may more reasonable to perform this kind of analysis within another language OR lean into running background child processes from a bash script
+# NOTE: see mock_crontab for how this could be scheduled nightly to provide snapshot analysis
 
 AUTH_LOG_FILE="/var/log/auth_log.log"
-OUTPUT_FILE_SUSPICIOUS="/Users/anewla/Documents/code/kura_labs_c5_assignements/bash_analysis_log_files_2024-08-01/suspicious_activity.log"
-# OUTPUT_FILE_SUSPICIOUS="/var/log/suspicious_activity.log"
+OUTPUT_FILE_SUSPICIOUS="/var/log/suspicious_activity.log"
 
 SUSPICOUS_KEY_WORDS=(failure failed unauthorized invalid)
 
@@ -37,8 +37,8 @@ function generate_suspicious_logs(){
       grep_text="${grep_text}\|${w}"
     fi
   done
-  echo "debug: grep phrase: ${grep_text}"
-  sudo grep "${grep_text}" "${auth_log_file}" >> "${output_log_file}"
+  # echo "debug: grep phrase: ${grep_text}"
+  sudo grep "${grep_text}" "${auth_log_file}" > "${output_log_file}"
 }
 
-
+generate_suspicious_logs

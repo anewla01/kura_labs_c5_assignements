@@ -1,0 +1,2 @@
+# NOTE: replace with full location of script
+59 23 * * * sudo sh /home/ubuntu/scripts/process_auth_logs.sh
