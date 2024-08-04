@@ -1,0 +1,8 @@
+Jul 31 10:21:57 server sshd[1240]: Failed password for invalid user admin from 192.168.1.6 port 22 ssh2
+Jul 31 10:29:15 server sshd[1252]: error: PAM: Authentication failure for user13 from 192.168.1.16
+Jul 31 10:21:57 server sshd[1240]: Failed password for invalid user admin from 192.168.1.6 port 22 ssh2
+Jul 31 10:21:57 server sshd[1240]: Failed password for invalid user admin from 192.168.1.6 port 22 ssh2
+Jul 31 10:29:15 server sshd[1252]: error: PAM: Authentication failure for user13 from 192.168.1.16
+Jul 31 10:25:30 server sshd[1244]: error: PAM: Authentication failure for user7 from 192.168.1.9
+Jul 31 10:21:57 server sshd[1240]: Failed password for invalid user admin from 192.168.1.6 port 22 ssh2
+Jul 31 10:25:30 server sshd[1244]: error: PAM: Authentication failure for user7 from 192.168.1.9
