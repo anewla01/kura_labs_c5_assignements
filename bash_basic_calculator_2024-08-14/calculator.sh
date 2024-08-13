@@ -13,6 +13,8 @@ function calculate(){
   # NOTE: manually sending to stderr to handle edge case where
   # op="*", and the echo is leading to path expansion
   echo "Equation: (${v1}) " "$op" " (${v2})" >&2
+
+  # NOTE: bc, by default provides a reasonable exception for division by 0
 	local rtn_value=$(echo "${v1} ${operator} ${v2}" | bc)
   log "Return: ${rtn_value}"
 }
