@@ -1,5 +1,5 @@
 #!/bin/bash
-# Purpose: check if a directory named backup exists in current directory, if not create it.
+# Purpose: check if a directory named `backup` exists in current directory, if not create it.
 
 curr_wd=$(pwd)
 expected_dir="${curr_wd}/backup" 
