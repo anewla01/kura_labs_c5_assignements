@@ -61,8 +61,8 @@ function run_network_connectivity_check(){
   echo "Network Connectivity Check"
   echo "Please provide a url for check!"
   read url
-  echo "Running network check for 3 seconds against: ${url}"
-  ping ${url} -t 3
+  echo "Running network check for 3 packets against: ${url}"
+  ping ${url} -c 3
 }
 
 function menu(){
