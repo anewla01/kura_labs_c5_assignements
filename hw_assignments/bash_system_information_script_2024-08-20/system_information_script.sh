@@ -21,6 +21,7 @@
 # The script should continue to ask the user to choose from the menu until they want to exit.
 
 function show_menu(){
+  echo "************"
   echo "1. IP Addresses"
   echo "2. Current User"
   echo "3. CPU Information"
@@ -29,7 +30,7 @@ function show_menu(){
   echo "6. Top 5 Processes by CPU Usage"
   echo "7. Network Connectivity"
   echo "8. Exit"
-  printf "\n\n"
+  echo "************"
 }
 
 function get_public_ip(){
@@ -70,6 +71,7 @@ function menu(){
   do 
     echo "Choose item from menu - using the integer to select menu item"
     show_menu
+    printf "\n\n"
     read response 
     case "${response}" in 
       1) echo "Your Public IP: $(get_public_ip), Private IP: $(get_private_ip)";;
@@ -81,6 +83,8 @@ function menu(){
       7) run_network_connectivity_check;;
       8) echo "Exitting!"; break ;;
     esac
+    
+    printf "\n"
   done
 }
 
