@@ -16,7 +16,7 @@ function get_user_input() {
       fi
     done
     
-    if [[ "${valid_resp}" -ne -1 ]]
+    if [[ "${valid_resp}" -ne 1 ]]
     then
       echo "Invalid input, please enter one of the following options: ${valid_set[*]}" >&2
     fi
