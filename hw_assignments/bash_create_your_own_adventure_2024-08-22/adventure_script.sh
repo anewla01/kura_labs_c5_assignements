@@ -45,7 +45,6 @@ function step_1_evaluate_beach_success(){
   local override=$(random_yes)
 
   local go_to_beach=$([[ ! -z "${valid_reason}"  || "${override}" == "Y" ]] && echo 1 || echo 0)
-  go_to_beach=0
 
   if [[ "${go_to_beach}" -eq 1 ]]
     then
