@@ -18,18 +18,21 @@ if __name__ == "__main__":
     response = requests.get(
         ENDPOINT, headers=HEADERS, params={"region": "US", "symbol": "AMRN"}
     )
-    data = response.json()
+    if response.status_code == 200:
+        data = response.json()
 
-    print(
-        f"Over the last 52 weeks the change has been: {data['defaultKeyStatistics']['52WeekChange']['fmt']}"
-    )
-    print(
-        f"Market Open Price: {data['price']['regularMarketOpen']['fmt']}({data['price']['currency']}) "
-        f"(reference: {data['price']['quoteSourceName']})"
-    )
-    earnings = data["calendarEvents"].get("earnings")
-    if earnings:
-        earnings_dates_str = ", ".join(
-            sorted([e["fmt"] for e in earnings["earningsDate"]])
+        print(
+            f"Over the last 52 weeks the change has been: {data['defaultKeyStatistics']['52WeekChange']['fmt']}"
         )
-        print(f"Earnings Date(s): {earnings_dates_str}")
+        print(
+            f"Market Open Price: {data['price']['regularMarketOpen']['fmt']}({data['price']['currency']}) "
+            f"(reference: {data['price']['quoteSourceName']})"
+        )
+        earnings = data["calendarEvents"].get("earnings")
+        if earnings:
+            earnings_dates_str = ", ".join(
+                sorted([e["fmt"] for e in earnings["earningsDate"]])
+            )
+            print(f"Earnings Date(s): {earnings_dates_str}")
+    else:
+        raise RuntimeError(f"Unexpected status code, found: {response.status_code}")
